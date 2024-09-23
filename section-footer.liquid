@@ -1,0 +1,58 @@
+{% comment %} Section: footer.liquid {% endcomment %}
+{% schema %}
+{
+  "name": "Footer",
+  "max_blocks": 6,
+
+  /// original schema ///
+
+  "type": "liquid",
+          "id": "custom-code",
+          "label": "Custom HTML"
+      }
+  ]
+},
+
+<!-- localization block settings -->
+       {
+  "type": "localization",
+  "name": "Localization",
+  "settings": [
+    {
+          "type": "select",
+          "id": "alignment",
+          "label": "Alignment",
+          "default": "text-left",
+          "options": [
+            { "value": "text-left", "label": "Left" },
+            { "value": "text-center", "label": "Center" }
+          ]
+        },
+    {
+          "type": "select",
+          "id": "column_width",
+          "label": "Column width",
+          "default": "30",
+          "options": [
+            { "value": "20", "label": "20%"},
+            { "value": "25", "label": "25%"},
+            { "value": "30", "label": "30%"},
+            { "value": "33.33", "label": "33%"},
+            { "value": "50", "label": "50%"},
+            { "value": "66.66", "label": "66%"},
+            { "value": "75", "label": "75%"},
+            { "value": "80", "label": "80%"},
+            { "value": "100", "label": "100%"}
+          ],
+          "info": "Desktop only"
+        }
+  ]
+}, 
+<!-- end of localization block settings -->
+
+{
+      "type": "divider",
+      "name": "Divider",
+      "settings": [
+
+      /// rest of the original schema ///
