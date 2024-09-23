@@ -1,0 +1,79 @@
+{% comment % } Snippet: product-grid-item.liquid {% endcomment %}
+/// Theme snippet code /// 
+ 
+  <div class="product-grid-item {% if carousel %}carousel__item{% else %}grid__item{% endif %} {{ size_desktop }} {{ size_mobile }}{% if tag %} has-tag{% endif %}{% if sold_out %} soldout{% endif %}{{ grid_item_class }}"
+  {% if carousel %} data-slide{% endif %}
+  data-product-block
+  {% if product.published_at == nil %} data-unpublished{% endif %}
+  id="{{ item_unique }}">
+  {%- comment -%} Image {%- endcomment -%}
+  <div class="product-grid-item__image" data-product-media-container>
+  
+<!-- Hover media re-assign -->
+    {%- liquid
+      
+      assign grid_image_size = settings.image_size
+      
+      if product.media.size >= 3 
+      assign image = product.media[0].preview_image
+      assign hover_image = product.media[2].preview_image
+       if product.template_suffix == 'new-gallery'
+       assign image = product.media[0].preview_image
+       assign hover_image = product.media[1].preview_image
+       endif
+       else
+       assign image = product.media[0].preview_image
+       assign hover_image = product.media[1].preview_image
+       endif
+       
+<!-- end of hover media re-assign -->
+
+      assign image_aspect_ratio = image.aspect_ratio | default: 1
+      assign image_container_class = 'product__media__container'
+      if image_aspect_ratio_setting == blank
+        assign image_aspect_ratio_setting = settings.image_aspect_ratio
+      endif
+
+      /// rest of the theme's liquid ///
+  
+  <div class="product__media__slide" data-product-media-slideshow-slide>
+                  {%- render 'image-fill',
+                    cover: image_cover,
+                    is_background: true,
+                    img_object: image,
+                    sizes: sizes,
+                    aspect_ratio: aspect_ratio,
+                    classes: 'product__media' -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+          
+          <!--Hover media render-->
+          {%- if product.media.size > 2 -%}
+            <div class="progress-bar">
+              <div class="progress-bar__inner" data-product-slideshow-progress></div>
+            </div>
+          {%- endif -%}
+        {%- elsif product_grid_hover == 'image' and product.media[1].preview_image != blank -%}
+          {%- assign image = product.media[1].preview_image -%}
+          <deferred-loading
+            class="product__media__hover product__media__hover--{{ product_grid_hover_animation }}"
+            {% if has_colors %} data-deferred-container="[data-product-block]" data-deferred-triggers="[data-deferred-trigger-element]"{% endif %}
+          >
+            {%- render 'image-fill',
+              cover: image_cover,
+              is_background: true,
+              img_object: hover_image,
+              sizes: sizes,
+              image_attributes: 'data-product-image-hover',
+              aspect_ratio: aspect_ratio,
+              classes: 'product__media__hover-img product__media__hover-img--visible product__media' -%}
+<!--End hover media render-->
+
+            {%- if has_colors -%}
+              <template>
+                <div data-deferred-content>
+                  {%- for variant in product.variants -%}
+                  
+/// rest of the snippet's code ///
