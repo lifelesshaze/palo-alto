@@ -1,0 +1,54 @@
+/* Asset: theme.css  endcomment */
+
+/* --- original theme CSS code --- */
+
+/*Footer adjustments*/
+@media only screen and (max-width: 767px) {
+  .footer-links li,
+.footer-copyright__copy {
+  line-height: 2.5;
+}
+  .localization-form {
+    margin-bottom: 0;
+  }
+  .footer-copyright__content {
+    padding-bottom: 0.5em;
+  }
+  .footer-block .newsletter-form {
+    margin-bottom: 0.25em;
+  }
+}
+#SiteFooter .footer-bottom {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #E0DBD7;
+}
+@media only screen and (min-width: 1024px) {
+  .footer-content .wrapper--full-padded{
+    padding: 0 40px;
+    padding-left: 60px;
+  }
+  .footer-blocks {
+    --gutter: 40px;
+  }
+  .footer-links__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .footer-block--menu {
+    --desktop-width: 45% !important;
+  }
+  .footer-links {
+    display: inline-flex;
+    align-content: center;
+  }
+  .footer-links li {
+    padding-right: 35px;
+  }
+.footer-links__wrapper{
+  margin-left: -1em;
+}
+  .localization-form {
+    margin-top: 5px
+  }
+}
