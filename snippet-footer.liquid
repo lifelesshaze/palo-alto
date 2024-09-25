@@ -1,0 +1,24 @@
+{% comment %} Snippet: footer.liquid {% endcomment %}
+
+/// original snippet code ///
+
+
+style="{{ block_style }}"
+              {{ block.shopify_attributes }}>
+              {%- if title != blank -%}
+                <p class="footer-title h5">{{ title }}</p>
+              {%- endif -%}
+              <div class="rte">
+                {{- footer_text -}}
+              </div>
+            </div>
+            
+            <!--Country selectors in main footer -->
+          {%- when 'localization' -%}
+          {%- render 'footer-block-localization' -%}
+          <!--End of country selectors in main footer -->
+          
+          {%- when 'divider' -%}
+            <div class="footer-block footer-block--divider{% if block.settings.column_width == '100' %} footer-block--divider-full{% endif %}"
+            
+              /// rest of the original code ///
