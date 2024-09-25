@@ -1,0 +1,15 @@
+{% comment %} New snippet to create: footer-block-localization.liquid {% endcomment %}
+<div class="footer-block footer-block--localization {{ alignment }}"
+  {% if animations_enabled %}
+    data-aos="fade-up"
+    data-aos-anchor="{{ animation_anchor }}"
+    data-aos-delay="{{ animation_delay }}"
+    {%- assign animation_delay = animation_delay | plus: 150 -%}
+  {% endif %}
+  style="{{ block_style }}"
+  {{ block.shopify_attributes }}>
+  {%- if title != blank -%}
+  <div class="footer-title h5">{{ title }}</div>
+  {%- endif -%}           
+  {%- render 'cross-border' -%}
+</div>
